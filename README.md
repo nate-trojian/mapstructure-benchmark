@@ -14,17 +14,29 @@ Doing two passes using JSON is faster, with less allocations, than using mapstru
 goos: darwin
 goarch: arm64
 pkg: github.com/nate-trojian/mapstructure-benchmark
-BenchmarkMapstructure/Intern-8                  	  293991	      4041 ns/op	    2512 B/op	      60 allocs/op
-BenchmarkMapstructure/Salary-8                  	  286898	      4120 ns/op	    2512 B/op	      61 allocs/op
-BenchmarkJSONwFunctionRegistry/Intern-8         	  688566	      1774 ns/op	     592 B/op	      15 allocs/op
-BenchmarkJSONwFunctionRegistry/Salary-8         	  628483	      1870 ns/op	     584 B/op	      16 allocs/op
-BenchmarkJSONwSwitch/Intern-8                   	  667989	      1775 ns/op	     592 B/op	      15 allocs/op
-BenchmarkJSONwSwitch/Salary-8                   	  651626	      1862 ns/op	     584 B/op	      16 allocs/op
-BenchmarkJSONwReflectRegistry/Intern-8          	  673431	      1741 ns/op	     544 B/op	      14 allocs/op
-BenchmarkJSONwReflectRegistry/Salary-8          	  624691	      1884 ns/op	     536 B/op	      15 allocs/op
+BenchmarkMapstructure
+BenchmarkMapstructure/Intern
+BenchmarkMapstructure/Intern-8                  	  293814	      4076 ns/op	    2512 B/op	      60 allocs/op
+BenchmarkMapstructure/Salary
+BenchmarkMapstructure/Salary-8                  	  284008	      4151 ns/op	    2512 B/op	      61 allocs/op
+BenchmarkJSONwFunctionRegistry
+BenchmarkJSONwFunctionRegistry/Intern
+BenchmarkJSONwFunctionRegistry/Intern-8         	  665901	      1789 ns/op	     592 B/op	      15 allocs/op
+BenchmarkJSONwFunctionRegistry/Salary
+BenchmarkJSONwFunctionRegistry/Salary-8         	  630674	      1897 ns/op	     584 B/op	      16 allocs/op
+BenchmarkJSONwSwitch
+BenchmarkJSONwSwitch/Intern
+BenchmarkJSONwSwitch/Intern-8                   	  655881	      1806 ns/op	     592 B/op	      15 allocs/op
+BenchmarkJSONwSwitch/Salary
+BenchmarkJSONwSwitch/Salary-8                   	  630794	      1880 ns/op	     584 B/op	      16 allocs/op
+BenchmarkJSONwReflectRegistry
+BenchmarkJSONwReflectRegistry/Intern
+BenchmarkJSONwReflectRegistry/Intern-8          	  668143	      1786 ns/op	     544 B/op	      14 allocs/op
+BenchmarkJSONwReflectRegistry/Salary
+BenchmarkJSONwReflectRegistry/Salary-8          	  620336	      1922 ns/op	     536 B/op	      15 allocs/op
 PASS
-coverage: 75.0% of statements
-ok  	github.com/nate-trojian/mapstructure-benchmark	10.871s
+coverage: 73.3% of statements
+ok  	github.com/nate-trojian/mapstructure-benchmark	10.901s
 ```
 
 ## JSON Registry vs Switch

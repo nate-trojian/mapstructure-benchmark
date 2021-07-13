@@ -2,10 +2,10 @@ package mapstructurebenchmark
 
 import (
 	"encoding/json"
-	"reflect"
 	"testing"
 
 	"github.com/mitchellh/mapstructure"
+	"github.com/nate-trojian/goregistry"
 )
 
 var (
@@ -143,7 +143,7 @@ func BenchmarkJSONwSwitch(b *testing.B) {
 }
 
 func BenchmarkJSONwReflectRegistry(b *testing.B) {
-	reg := NewRegistry(reflect.TypeOf((*Employee)(nil)).Elem(), func(b []byte) (string, error) {
+	registry := goregistry.New(func(b []byte) (string, error) {
 		// Unmarshal to base structure
 		var base baseEmployee
 		err := json.Unmarshal(b, &base)
@@ -152,18 +152,18 @@ func BenchmarkJSONwReflectRegistry(b *testing.B) {
 		}
 		return base.Type, nil
 	})
-	reg.Register("intern", reflect.TypeOf(&Intern{}))
-	reg.Register("salary", reflect.TypeOf(&SalaryEmployee{}))
+	registry.Register("intern", &Intern{})
+	registry.Register("salary", &SalaryEmployee{})
 	b.Run("Intern", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			if _, err := reg.FromJSON(internInput); err != nil {
+			if _, err := registry.FromJSON(internInput); err != nil {
 				b.Fatalf("Failed to convert intern - %v", err)
 			}
 		}
 	})
 	b.Run("Salary", func(b *testing.B) {
 		for i := 0; i < b.N; i++ {
-			if _, err := reg.FromJSON(salariedInput); err != nil {
+			if _, err := registry.FromJSON(salariedInput); err != nil {
 				b.Fatalf("Failed to convert salary - %v", err)
 			}
 		}

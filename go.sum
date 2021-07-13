@@ -1,2 +1,4 @@
 github.com/mitchellh/mapstructure v1.4.1 h1:CpVNEelQCZBooIPDn+AR3NpivK/TIKU8bDxdASFVQag=
 github.com/mitchellh/mapstructure v1.4.1/go.mod h1:bFUtVrKA4DC2yAKiSyO/QUcy7e+RRV2QTWOzhPopBRo=
+github.com/nate-trojian/goregistry v1.0.0 h1:zpr8rqf30pKInPVfQ5+e1yeAUBN1+m4XJJBlVrByh1M=
+github.com/nate-trojian/goregistry v1.0.0/go.mod h1:h/uDgJLFL5gCZ3e0879mTYVqh6VhcOKE3Vbugb/V4Jc=
